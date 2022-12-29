@@ -1,4 +1,4 @@
-export class Animal {
+export abstract class Animal {
   constructor(
     protected name: string  // es similar al private con la diferencia de que puedo usar herencia con protected
     ) {}
