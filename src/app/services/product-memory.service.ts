@@ -1,8 +1,9 @@
 import { IProduct } from "../models/product.model";
 import { ICreateProductDto, IUpdateProductDto } from "../dtos/product.dto";
 import { faker } from "@faker-js/faker";
+import { ProductService } from "../models/product-service.model";
 
-export class ProductMemoryService {
+export class ProductMemoryService implements ProductService{
   constructor(private products: IProduct[] = []) {}
 
   create(data: ICreateProductDto): IProduct {
@@ -39,6 +40,10 @@ export class ProductMemoryService {
 
   getOne(id: IProduct['id']) {
     return this.products.find((item) => item.id === id)
+  }
+
+  get() {
+    return this.products;
   }
 
 }
